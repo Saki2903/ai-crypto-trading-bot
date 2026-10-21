@@ -1,7 +1,7 @@
 
 import pandas as pd
 
-from agents.agent_coordinator import AgentCoordinator
+from src.agents.agent_coordinator import AgentCoordinator
 
 
 def main():

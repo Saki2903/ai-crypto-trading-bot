@@ -1,4 +1,20 @@
+
 .venv/
+.venv-1/
 __pycache__/
 *.py[cod]
 .env
+.env.*
+
+# Local trading state and order history
+data/*.db
+data/*.db-*
+data/*.sqlite
+data/*.sqlite3
+
+# Runtime logs
+logs/
+
+# Local backup files — keep out of GitHub
+src/main.py.before_offline_integration.bak
+src/validate_data.py.before_tests.bak

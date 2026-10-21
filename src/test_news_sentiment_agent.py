@@ -1,5 +1,5 @@
 
-from agents.news_sentiment_agent import NewsSentimentAgent
+from src.agents.news_sentiment_agent import NewsSentimentAgent
 
 
 def main():

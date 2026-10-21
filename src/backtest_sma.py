@@ -83,6 +83,25 @@ def main():
     drawdown = df["STRATEGY_EQUITY"] / running_peak - 1
     max_drawdown = drawdown.min() * 100
 
+    # Create buy-and-hold equity curve
+    df["BUY_HOLD_EQUITY"] = (
+        df["close"] / first_open
+    ) * (1 - FEE_RATE)
+
+    # Include the final exit fee
+    df.loc[df.index[-1], "BUY_HOLD_EQUITY"] *= (1 - FEE_RATE)
+
+    # Save equity data for charting
+    equity_path = (
+        project_dir / "data" / "processed" / "sma_backtest_equity.csv"
+    )
+
+    df[
+        ["timestamp", "STRATEGY_EQUITY", "BUY_HOLD_EQUITY"]
+    ].to_csv(equity_path, index=False)
+
+    print("Equity data saved to:", equity_path)
+
     print("SMA Crossover Backtest")
     print("-" * 40)
     print("Candles:", len(df))

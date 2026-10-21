@@ -3,11 +3,11 @@ from dataclasses import dataclass
 
 import pandas as pd
 
-from agents.market_research_agent import (
+from src.agents.market_research_agent import (
     MarketResearchAgent,
     MarketResearchReport,
 )
-from agents.news_sentiment_agent import (
+from src.agents.news_sentiment_agent import (
     NewsSentimentAgent,
     NewsSentimentReport,
 )
